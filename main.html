@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>m y s t e r i c</title>
+    <link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset and Body Styling */
+        body {
+            margin: 0;
+            overflow: hidden; /* Hide scrollbars if any */
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+            font-family: 'UnifrakturCook', cursive; /* Apply gothic font */
+            display: flex; /* Use flexbox for centering */
+            flex-direction: column; /* Stack children vertically */
+            justify-content: center; /* Center vertically */
+            align-items: center; /* Center horizontally */
+            min-height: 100vh; /* Full viewport height */
+            position: relative; /* Needed for potential future additions */
+        }
+
+        /* Text Container for "mysteric" */
+        .mysteric-container {
+            text-align: center; /* Center text within the container */
+            font-size: 5em; /* Set a large font size */
+            opacity: 0; /* Initially hidden for the animation */
+            animation: aggressiveReveal 4s ease-out forwards; /* Apply the aggressive reveal animation */
+            text-shadow: none; /* Start with no shadow */
+            margin-bottom: 10px; /* Add some space between main text and subtitle */
+            position: relative; /* Needed for z-index */
+            z-index: 2; /* Ensure text is above stars */
+        }
+
+        /* Subtitle Styling */
+        .subtitle {
+            font-family: 'Arial Black', Impact, sans-serif; /* Use a bold sans-serif font */
+            font-size: 0.8em; /* Smaller font size relative to parent */
+            font-weight: bold; /* Ensure bold weight */
+            color: #fff; /* Change color to white */
+            opacity: 0; /* Initially hidden, will be revealed by animation */
+            position: relative; /* Needed for z-index */
+            z-index: 2; /* Ensure text is above stars */
+        }
+
+        /* Class to apply the flickering animation */
+        .subtitle.flickering {
+            /* Apply the broken light flicker animation */
+            animation: brokenLightFlicker 3s infinite steps(1, end); /* Shorter duration for more frequent cycle */
+        }
+
+        /* Aggressive Reveal Animation (for "mysteric") */
+        @keyframes aggressiveReveal {
+            0% {
+                opacity: 0;
+                text-shadow: none;
+                filter: blur(10px); /* Start blurred */
+            }
+            10% {
+                opacity: 0.2;
+                text-shadow: none;
+                filter: blur(8px);
+            }
+            15% {
+                opacity: 0.1; /* Flicker */
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+                filter: blur(9px);
+            }
+            25% {
+                opacity: 0.4;
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+                filter: blur(6px);
+            }
+            30% {
+                opacity: 0.3; /* Flicker */
+                text-shadow: none;
+                filter: blur(7px);
+            }
+            40% {
+                opacity: 0.6;
+                text-shadow: 0 0 30px rgba(255, 255, 255, 0.6), 0 0 60px rgba(255, 255, 255, 0.3); /* Brighter flash */
+                filter: blur(4px);
+            }
+            45% {
+                opacity: 0.5; /* Flicker */
+                text-shadow: none;
+                filter: blur(5px);
+            }
+            60% {
+                opacity: 0.8;
+                text-shadow: 0 0 40px rgba(255, 255, 255, 0.8), 0 0 80px rgba(255, 255, 255, 0.4); /* Intense flash */
+                filter: blur(2px);
+            }
+            65% {
+                opacity: 0.7; /* Flicker */
+                text-shadow: none;
+                filter: blur(3px);
+            }
+            80% {
+                opacity: 0.9;
+                text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+                filter: blur(1px);
+            }
+            100% {
+                opacity: 1; /* Fully visible */
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Subtle final glow */
+                filter: blur(0); /* No blur */
+            }
+        }
+
+        /* Broken Light Flicker Animation (for subtitle) */
+        @keyframes brokenLightFlicker {
+            0%, 5%, 10%, 15%, 20%, 25%, 30%, 35%, 40% { opacity: 1; } /* Mostly on */
+            42%, 44%, 46% { opacity: 0.2; } /* Quick dim flickers */
+            48%, 50% { opacity: 1; } /* On */
+            52% { opacity: 0; } /* Off */
+            55% { opacity: 1; } /* On */
+            57%, 59% { opacity: 0.1; } /* Quick very dim flickers */
+            60% { opacity: 1; } /* On */
+            65% { opacity: 0; } /* Off for a bit longer */
+            70% { opacity: 1; } /* On */
+            72% { opacity: 0.3; } /* Dim flicker */
+            75%, 100% { opacity: 1; } /* Stay on for the rest of the cycle */
+        }
+
+        /* Eerie and Scary Subtitle Entrance Animation */
+        @keyframes subtitleEntranceAnimation {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(20px); /* Start slightly smaller and lower */
+                filter: blur(15px) grayscale(1); /* Blurred and desaturated */
+                text-shadow: none;
+            }
+            20% {
+                opacity: 0.3;
+                transform: scale(0.9) translateY(-5px) rotateZ(2deg); /* Creep up and subtly rotate */
+                filter: blur(10px) grayscale(0.8);
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.1);
+            }
+            40% {
+                opacity: 0.5;
+                transform: scale(1) translateY(0) rotateZ(-1deg) skewX(2deg); /* Reach normal size, slight skew */
+                filter: blur(5px) grayscale(0.5);
+                text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+            }
+            60% {
+                opacity: 0.7;
+                transform: scale(1.02) translateY(-2px) rotateZ(0deg) skewX(-1deg); /* Slight unsettling pulse/movement */
+                filter: blur(2px) grayscale(0.2);
+                text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            }
+            80% {
+                opacity: 0.9;
+                transform: scale(1) translateY(0) rotateZ(0deg) skewX(0); /* Settle towards final state */
+                filter: blur(1px) grayscale(0.1);
+                text-shadow: 0 0 12px rgba(255, 255, 255, 0.4);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0) rotateZ(0deg) skewX(0); /* Final state */
+                filter: blur(0) grayscale(0); /* Clear filters */
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.2); /* Subtle final glow */
+            }
+        }
+
+        /* Shooting Star Styling - Now just a dot */
+        .shooting-star {
+            position: absolute;
+            width: 3px; /* Slightly larger dot */
+            height: 3px; /* Slightly larger dot */
+            background-color: #fff; /* White color */
+            box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.7); /* Stronger glow */
+            border-radius: 50%; /* Make it round */
+            pointer-events: none; /* Allow clicks to pass through */
+            z-index: 1; /* Below the text */
+            opacity: 0; /* Start invisible */
+            /* Animation properties will be set by JavaScript */
+        }
+
+        /* Removed the ::after pseudo-element for the tail */
+
+        /* Shooting Animation Keyframes - Faster and more vertical */
+        @keyframes shoot {
+            0% {
+                opacity: 0;
+                transform: translate(0, 0); /* Start from the element's initial position */
+            }
+            20% {
+                opacity: 1; /* Fade in quickly */
+            }
+            80% {
+                 opacity: 1; /* Stay visible during the main travel */
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--end-x), var(--end-y)); /* Translate by the calculated distance */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="mysteric-container">
+        mysteric
+    </div>
+    <div class="subtitle">
+        WORK IN PROGRESS
+    </div>
+
+    <script>
+        const mystericContainer = document.querySelector('.mysteric-container');
+        const subtitle = document.querySelector('.subtitle');
+        const body = document.body;
+
+        // Initially hide the subtitle
+        subtitle.style.opacity = 0; // Ensure it's hidden before its animation starts
+
+        // Listen for the end of the aggressiveReveal animation on the main text
+        mystericContainer.addEventListener('animationend', () => {
+            // Start the subtitle entrance animation
+            // Increased duration for a slower, creepier reveal
+            subtitle.style.animation = 'subtitleEntranceAnimation 5s ease-out forwards';
+        });
+
+        // Listen for the end of the subtitle entrance animation
+        subtitle.addEventListener('animationend', (event) => {
+            // Check if the ended animation is the entrance animation
+            if (event.animationName === 'subtitleEntranceAnimation') {
+                // Remove the entrance animation so the flicker animation can take over
+                subtitle.style.animation = ''; // Clear the animation property
+                // Add the 'flickering' class to start the broken light flicker
+                subtitle.classList.add('flickering');
+            }
+        });
+
+        // Function to create a shooting star
+        function createShootingStar() {
+            const star = document.createElement('div');
+            star.classList.add('shooting-star');
+
+            // Randomize start position (mostly from the top area)
+            const startX = Math.random() * window.innerWidth; // Can start anywhere horizontally
+            const startY = Math.random() * window.innerHeight * 0.2; // Start within the top 20% of the screen
+
+            // Randomize end position (shooting aggressively downwards)
+            const endX = startX + (Math.random() - 0.5) * 200; // End slightly left or right of startX
+            const endY = startY + window.innerHeight * (0.8 + Math.random() * 0.2); // Fall aggressively downwards
+
+            // Randomize animation duration and delay (shorter for quicker fall)
+            const duration = 0.8 + Math.random() * 0.7; // 0.8 to 1.5 seconds
+            const delay = Math.random() * 0.5; // Up to 0.5 second delay
+
+            star.style.left = `${startX}px`;
+            star.style.top = `${startY}px`;
+
+            // Calculate the translation needed from the start position
+            star.style.setProperty('--end-x', `${endX - startX}px`);
+            star.style.setProperty('--end-y', `${endY - startY}px`);
+
+            // Apply the animation using the predefined keyframes and CSS variables
+            star.style.animation = `shoot ${duration}s linear ${delay}s forwards`;
+
+            body.appendChild(star);
+
+            // Remove the star after the animation ends
+            star.addEventListener('animationend', () => {
+                star.remove();
+            });
+        }
+
+        // Generate 3 shooting stars every 5 seconds
+        setInterval(() => {
+            for (let i = 0; i < 3; i++) {
+                createShootingStar();
+            }
+        }, 5000); // 5000 milliseconds = 5 seconds
+
+    </script>
+
+</body>
+</html>
