@@ -164,7 +164,7 @@
         
         /* Container for the profile elements to give it a wide shape */
         #profile-container {
-            width: 100%;
+            width: 95%; /* Use a large percentage width on mobile */
             max-width: 800px; 
             margin-top: -10vh; 
             padding: 20px 30px; 
@@ -243,14 +243,42 @@
         #profile-picture {
             overflow: hidden;
         }
-
-
-        /* Mobile adjustments */
-        @media (max-width: 600px) {
+        
+        /* --- MOBILE-SPECIFIC STYLES --- */
+        @media (max-width: 640px) {
+             /* General box padding reduction */
             #profile-container {
-                max-width: 95%;
+                padding: 16px 20px;
+            }
+            
+            /* Drastically reduce the size of the name text */
+            #typewriter-text {
+                font-size: 1.5rem !important; /* From 3xl (1.875rem) to 1.5rem */
+            }
+            
+            /* Shrink the icons next to the name */
+            .verified-icon {
+                width: 18px;
+                height: 18px;
+            }
+            #ninety-nine-nine-icon {
+                width: 35px; /* From 60px to 35px */
+            }
+
+            /* Reduce space between PFP and text stack */
+            .flex.items-start.w-full.relative > div:nth-child(2) {
+                margin-left: 12px; /* From ml-6 to smaller margin */
+            }
+
+             /* Shrink social icons */
+            .social-icon-glow.w-14.h-14 {
+                width: 10vw !important; /* Use viewport width for better scaling */
+                height: 10vw !important;
+                max-width: 40px;
+                max-height: 40px;
             }
         }
+
 
     </style>
     
@@ -342,7 +370,7 @@
             <div class="flex items-start w-full relative">
                 
                 <!-- Profile Picture (Left Layer) -->
-                <!-- Added overflow-hidden to the container and removed content padding -->
+                <!-- PFP size is w-24 h-24 on all devices -->
                 <div class="w-24 h-24 rounded-full border-2 border-white/50 bg-black shrink-0 transition duration-75 ease-out overflow-hidden" id="profile-picture">
                     <!-- NEW: Updated PFP image source -->
                     <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS2dKAibmo81kEWCRTFZI9aSF4wTYcCtZEa-Z8MN4982BplvlGP" 
@@ -352,19 +380,20 @@
                 </div>
 
                 <!-- Name & Description Stack (Right side of profile pic) -->
+                <!-- Reduced ml-6 to sm:ml-3 on mobile via CSS for tighter fit -->
                 <div id="text-stack-wrapper" class="ml-6 flex flex-col items-start pt-1">
                     <div class="flex items-center space-x-2 mb-0 transition duration-75 ease-out" id="profile-name-container">
-                        <!-- Removed uppercase class -->
+                        <!-- Font size is reduced on mobile via CSS -->
                         <h1 class="text-3xl font-bold tracking-widest text-white" id="typewriter-text" style="font-weight: 700;"></h1>
                         <span class="typewriter-cursor"></span>
                         
-                        <!-- NEW: Verified Icon -->
+                        <!-- Verified Icon (Size reduced on mobile via CSS) -->
                         <img src="https://cdn-icons-png.flaticon.com/512/7641/7641727.png"
                              alt="Verified Icon"
                              class="verified-icon social-icon-glow shrink-0"
                              onerror="this.onerror=null;this.src='https://placehold.co/25x25/000000/ffffff?text=V'">
 
-                        <!-- UPDATED: 999 image now has 100% increased width (60px) -->
+                        <!-- 999 image (Size reduced on mobile via CSS) -->
                         <img id="ninety-nine-nine-icon" 
                              src="https://sweezy-cursors.com/wp-content/uploads/cursor/juice-wrld-999/juice-wrld-999-custom-cursor.png" 
                              alt="999 Logo" 
@@ -373,7 +402,8 @@
                     </div>
                     
                     <!-- ABSOLUTELY POSITIONED ELEMENTS -->
-                    <!-- UPDATED: text-sm class removed in favor of CSS font-size: 0.75rem for smaller size -->
+                    <!-- Positioned via fixed pixel values for desktop, which should be fine 
+                         as long as the parent is the right size -->
                     <h3 class="font-semibold text-gray-200 mb-0 transition duration-75 ease-out uppercase" id="profile-description">YOUR NEW FAVORITE DESIGNER</h3>
                     <p class="text-xs md:text-sm font-light text-gray-500 transition duration-75 ease-out mt-1" id="joined-date">EST. 2015</p>
                 </div>
@@ -384,6 +414,7 @@
                 <!-- Social Links - using 'justify-between' for full width distribution -->
                 <div class="flex justify-between items-center text-white">
                     <!-- All links now point to https://mysteric.xyz -->
+                    <!-- Social icons are scaled via CSS to be relative to screen width (vw) on mobile -->
                     <!-- YouTube -->
                     <a href="https://mysteric.xyz" target="_blank" class="social-icon-glow w-14 h-14 flex items-center justify-center" title="YouTube">
                         <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="1.99 5 20.01 14.01"><path fill="currentColor" d="M21.593 7.203a2.506 2.506 0 0 0-1.762-1.766C18.265 5.007 12 5 12 5s-6.264-.007-7.831.404a2.56 2.56 0 0 0-1.766 1.778c-.413 1.566-.417 4.814-.417 4.814s-.004 3.264.406 4.814c.23.857.905 1.534 1.763 1.765c1.582.43 7.83.437 7.83.437s6.265.007 7.831-.403a2.515 2.515 0 0 0 1.767-1.763c.414-1.565.417-4.812.417-4.812s.02-3.265-.407-4.831zM9.996 15.005l.005-6l5.207 3.005l-5.212 2.995z"/></svg>
