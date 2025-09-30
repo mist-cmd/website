@@ -215,11 +215,19 @@
             white-space: nowrap;
         }
         
+        /* Custom styling for the verified icon */
+        .verified-icon {
+            width: 25px; /* Adjusted size for the checkmark */
+            height: 25px;
+            margin-left: 8px; /* Spacing from name */
+            filter: drop-shadow(#2099ff 0 0 5px); /* Blue glow for verified status */
+        }
+        
         /* Custom image styling to ensure it looks like an icon next to the name */
         #ninety-nine-nine-icon {
             width: 60px; 
             height: auto; 
-            margin-left: 8px; /* Spacing from name */
+            margin-left: 8px; /* Spacing from verified icon */
         }
         
         /* Style for the actual profile picture image inside the circle container */
@@ -350,6 +358,12 @@
                         <h1 class="text-3xl font-bold tracking-widest text-white" id="typewriter-text" style="font-weight: 700;"></h1>
                         <span class="typewriter-cursor"></span>
                         
+                        <!-- NEW: Verified Icon -->
+                        <img src="https://cdn-icons-png.flaticon.com/512/7641/7641727.png"
+                             alt="Verified Icon"
+                             class="verified-icon social-icon-glow shrink-0"
+                             onerror="this.onerror=null;this.src='https://placehold.co/25x25/000000/ffffff?text=V'">
+
                         <!-- UPDATED: 999 image now has 100% increased width (60px) -->
                         <img id="ninety-nine-nine-icon" 
                              src="https://sweezy-cursors.com/wp-content/uploads/cursor/juice-wrld-999/juice-wrld-999-custom-cursor.png" 
